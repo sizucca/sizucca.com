@@ -1,7 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const buildDir = path.resolve(__dirname, '../dist');
+const buildDir = path.resolve(__dirname, '../docs');
 
 module.exports = {
   mode: 'production',
