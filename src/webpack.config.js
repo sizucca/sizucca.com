@@ -1,17 +1,17 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const distPath = path.resolve(__dirname, '../docs');
+const buildDir = path.resolve(__dirname, '../docs');
 
 module.exports = {
   mode: 'development',
   entry: './assets/scripts/script.js',
   output: {
     filename: 'assets/scripts/script.js',
-    path: distPath
+    path: buildDir
   },
   devServer: {
-    contentBase: distPath,
+    contentBase: buildDir,
     watchContentBase: true,
     port: 4649,
     open: true
@@ -45,5 +45,9 @@ module.exports = {
       filename: 'assets/styles/style.css',
       ignoreOrder: true,
     })
-  ]
+  ],
+  // node_modules を監視（watch）対象から除外
+  watchOptions: {
+    ignored: /node_modules/  //正規表現で指定
+  },
 };
