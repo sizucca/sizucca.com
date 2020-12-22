@@ -1,10 +1,10 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const buildDir = path.resolve(__dirname, '../docs');
+const buildDir = path.resolve(__dirname, '../dist');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './assets/scripts/script.js',
   output: {
     filename: 'assets/scripts/script.js',
@@ -26,13 +26,22 @@ module.exports = {
           },
           {
             loader: 'css-loader',
+            options: {
+              //URL の解決を無効に
+              url: false,
+              // ソースマップを有効に
+              sourceMap: true,
+            },
           },
           {
             loader: 'sass-loader',
             options: {
+              implementation: require('sass'),
               sassOptions: {
                 outputStyle: 'compressed',
               },
+              // ソースマップを有効に
+              sourceMap: true,
             },
           },
         ]
@@ -42,10 +51,11 @@ module.exports = {
   target: ["web", "es5"],
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'assets/styles/style.css',
-      ignoreOrder: true,
+      filename: 'assets/styles/style.css'
     })
   ],
+  //source-map タイプのソースマップを出力
+  devtool: "source-map",
   // node_modules を監視（watch）対象から除外
   watchOptions: {
     ignored: /node_modules/  //正規表現で指定
