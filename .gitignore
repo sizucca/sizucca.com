@@ -1,0 +1,7 @@
+# OS system file
+.DS_Store
+Thumbs.db
+
+# webpack
+src/node_modules
+src/package*.json
