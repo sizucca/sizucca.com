@@ -3,5 +3,5 @@
 Thumbs.db
 
 # webpack
-./src/node_modules
-./src/package*.json
+src/node_modules
+src/package*.json
