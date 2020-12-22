@@ -1,2 +1,2 @@
 # sizucca.com
-Website
+https://sizucca.com/
